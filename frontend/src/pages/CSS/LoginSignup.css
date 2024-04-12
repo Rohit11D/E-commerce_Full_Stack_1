@@ -1,0 +1,152 @@
+.ls-back{
+    background-color: #fde1ff;
+    width: 100%;
+    height: 80vh;
+    padding-top: 100px;
+    margin-bottom: 70px;
+}
+.login_signup{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    /* align-items: center; */
+   border-style: none;
+    width: 400px;
+    height: fit-content;
+    margin: auto;
+    padding: 40px;
+    background: white;
+}
+.login_signup h2{
+    font-weight: 600;
+}
+.credentials{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    
+}
+.credentials input{
+    width: 100%;
+    height: 35px;
+    padding-left: 10px ;
+     border: 1px solid #c9c9c9;
+    
+}
+.continue-btn{
+    width: 100%;
+    height: 45px;
+    background: #ff4141;
+    border-style: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+}
+.login{
+    display: flex;
+    font-size: 15px;
+    gap: 5px;
+    font-weight: 500;
+    color: #5c5c5c;
+}
+.login span{
+    
+    font-size: 15px;
+    color: #ff4141;
+   cursor: pointer;
+}
+.checkboxTerms{
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+    gap: 20px;
+    color: #5c5c5c;
+}
+.checkboxTerms input{
+    cursor: pointer;
+}
+
+@media(max-width:1024px){
+.login_signup{
+    width: 380px;
+}
+.login_signup h2{
+    font-weight: 560;
+    font-size: 22px;
+}
+.credentials input{
+height: 30px;
+}
+.continue-btn{
+    height: 38px;
+    font-size: 17px;
+}
+.login{
+    font-size: 14px;
+}
+.login span{
+    font-size: 14px;
+}
+.checkboxTerms{
+    font-size: 12px;
+}
+}
+@media(max-width:800px){
+    .login_signup{
+        width: 340px;
+    }
+    .login_signup h2{
+        font-weight: 500;
+        font-size: 22px;
+    }
+    .credentials input{
+    height: 26px;
+    }
+    .continue-btn{
+        height: 35px;
+        font-size: 15px;
+    }
+    .login{
+        font-size: 13px;
+    }
+    .login span{
+        font-size: 13px;
+    }
+    .checkboxTerms{
+        font-size: 11px;
+    }
+    }
+    @media(max-width:530px){
+        .login_signup{
+            width: 300px;
+        }
+        .login_signup h2{
+            font-weight: 500;
+            font-size: 20px;
+        }
+        .credentials input{
+        height: 24px;
+        }
+        .continue-btn{
+            height: 31px;
+            font-size: 13px;
+        }
+        .login{
+            font-size: 12px;
+        }
+        .login span{
+            font-size: 12px;
+        }
+        .checkboxTerms{
+            font-size: 10px;
+        }
+        .checkboxTerms input{
+            height: 12px;
+        }
+        }
