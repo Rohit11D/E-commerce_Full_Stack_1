@@ -14,9 +14,14 @@ app.use(express.static(path.join(__dirname,'./admin/build')))
 // Db connection 
 mongoose.connect("mongodb+srv://priyankadangi2511:priyankadangi2511%40@cluster0.xvfzrnk.mongodb.net/e-commerce");
 // API creation
-app.use('*',function(req,res){
-    res.sendFile(path.join(__dirname,'./admin/build/index.html'));
-})
+// Serve any static files
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Handle React routing, return all requests to React app
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 // app.get("/",(req,res)=>{
 // res.send("Express app is running");
 // })
