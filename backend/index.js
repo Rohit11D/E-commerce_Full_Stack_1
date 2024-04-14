@@ -1,4 +1,4 @@
-const port = 4000;
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -7,21 +7,24 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const { type } = require("os");
-
+const dotenv = require("dotenv");
+ require('dotenv').config({ path: './config.env' });
+const Bport = process.env.BPORT;
+const DB_URL = process.env.DB_URL;
 app.use(express.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname,'./admin/build')))
+ app.use(express.static(path.join(__dirname,'./frontend/build')))
 // Db connection 
-mongoose.connect("mongodb+srv://priyankadangi2511:priyankadangi2511%40@cluster0.xvfzrnk.mongodb.net/e-commerce");
+mongoose.connect(DB_URL);
+
+
+// console.log(`${Bport} ${DB_URL}`);
+
+// mongoose.connect(mongodbURL);
 // API creation
-// Serve any static files
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// Handle React routing, return all requests to React app
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
+app.use('*',function(req,res){
+    res.sendFile(path.join(__dirname,'./frontend/build/index.html'));
+})
 // app.get("/",(req,res)=>{
 // res.send("Express app is running");
 // })
@@ -41,7 +44,7 @@ app.use('/images',express.static('upload/images'))
 app.post("/upload",upload.single('product'),(req,res)=>{
 res.json({
     success:true,
-    image_url:`http://localhost:${port}/images/${req.file.filename}`
+    image_url:`http://localhost:${Bport}/images/${req.file.filename}`
 })
 })
 // Schema for Creating products
@@ -253,9 +256,9 @@ app.post('/getcart',fetchUser,async(req,res)=>{
     let userData = await Users.findOne({_id:req.user.id});
     res.json(userData.cartData);
 })
-app.listen(port,(error)=>{
+app.listen(Bport,(error)=>{
     if(!error){
-        //console.log("server running on port:"+port);
+        //console.log("server running on port:"+Bport);
     }else{
         //console.log("Error:"+error);
     }
