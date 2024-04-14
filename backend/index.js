@@ -22,12 +22,12 @@ mongoose.connect(DB_URL);
 
 // mongoose.connect(mongodbURL);
 // API creation
-app.use('*',function(req,res){
-    res.sendFile(path.join(__dirname,'./frontend/build/index.html'));
-})
-// app.get("/",(req,res)=>{
-// res.send("Express app is running");
+// app.use('*',function(req,res){
+//     res.sendFile(path.join(__dirname,'./frontend/build/index.html'));
 // })
+app.get("/",(req,res)=>{
+res.send("Express app is running");
+})
 
 
 // image Storage Engine
