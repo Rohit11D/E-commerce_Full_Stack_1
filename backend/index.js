@@ -8,6 +8,7 @@ const path = require("path");
 const cors = require("cors");
 const { type } = require("os");
 const dotenv = require("dotenv");
+const Api_URL = "https://e-commerce-full-stack-1.onrender.com"
  require('dotenv').config({ path: './config.env' });
 const Bport = process.env.BPORT;
 const DB_URL = process.env.DB_URL;
@@ -44,7 +45,7 @@ app.use('/images',express.static('upload/images'))
 app.post("/upload",upload.single('product'),(req,res)=>{
 res.json({
     success:true,
-    image_url:`http://localhost:${Bport}/images/${req.file.filename}`
+    image_url:Api_URL+`/images/${req.file.filename}`
 })
 })
 // Schema for Creating products
